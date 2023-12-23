@@ -1,9 +1,11 @@
 import { Container } from "react-bootstrap";
 import Footer from "../components/footer";
 import Header from "../components/header";
+import styles from './main.module.css';
+
 const Main = ({ children }) => {
 
-    return <Container fluid style={{ display: 'flex', flexFlow: 'column nowrap', minHeight: '100vh', }}>
+    return <Container className={styles.container}>
         <Header />
         {children}
         <Footer />

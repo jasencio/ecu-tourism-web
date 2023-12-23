@@ -4,12 +4,15 @@ import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+    const navigate = useNavigate();
+
     return (
         <Navbar expand="lg" className="bg-body-tertiary mb-3">
             <Container fluid>
-                <Navbar.Brand href="#home">Ecuador Turistico</Navbar.Brand>
+                <Navbar.Brand onClick={()=>navigate('/')}>Ecuador Turistico</Navbar.Brand>
                 <Navbar.Toggle aria-controls="offcanvasNavbar-expand-lg" />
                 <Navbar.Offcanvas
                     id="offcanvasNavbar-expand-lg"
@@ -22,18 +25,19 @@ function Header() {
 
                     <Offcanvas.Body>
                         <Nav className="justify-content-start flex-grow-1 pe-3">
-                            <Nav.Link href="#action1">Home</Nav.Link>
-                            <Nav.Link href="#action2">Link</Nav.Link>
+                            <Nav.Link onClick={()=>navigate('/ciudades')}>Ciudades</Nav.Link>
+                            <Nav.Link onClick={()=>navigate('/sitios')}>Sitios</Nav.Link>
+                            <Nav.Link onClick={()=>navigate('/test')}>404</Nav.Link> 
                         </Nav>
 
                         <Form className="d-flex">
                             <Form.Control
                                 type="search"
-                                placeholder="Search"
+                                placeholder="Buscar"
                                 className="me-2"
                                 aria-label="Search"
                             />
-                            <Button variant="secondary" style={{ width: '100px' }}>Search</Button>
+                            <Button variant="secondary">Buscar</Button>
                         </Form>
                     </Offcanvas.Body>
 

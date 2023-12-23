@@ -5,7 +5,7 @@ function Footer() {
   return (
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand href="#">Footer</Navbar.Brand>
+          <Navbar.Brand href="#">UNIR</Navbar.Brand>
         </Container>
       </Navbar>
   );
