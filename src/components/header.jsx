@@ -18,7 +18,7 @@ function Header() {
                     id="offcanvasNavbar-expand-lg"
                     placement="end">
                     <Offcanvas.Header closeButton>
-                        <Offcanvas.Title  id="offcanvasNavbar-expand-lg">
+                        <Offcanvas.Title  id="offcanvasNavbar-expand-lg" onClick={()=>navigate('/')}>
                             Ecuador Turistico
                         </Offcanvas.Title>
                     </Offcanvas.Header>
@@ -27,6 +27,7 @@ function Header() {
                         <Nav className="justify-content-start flex-grow-1 pe-3">
                             <Nav.Link onClick={()=>navigate('/ciudades')}>Ciudades</Nav.Link>
                             <Nav.Link onClick={()=>navigate('/sitios')}>Sitios</Nav.Link>
+                            <Nav.Link onClick={()=>navigate('/iniciar_sesion')}>Iniciar Sesión</Nav.Link>
                             <Nav.Link onClick={()=>navigate('/test')}>404</Nav.Link> 
                         </Nav>
 

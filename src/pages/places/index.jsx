@@ -1,26 +1,33 @@
-import { Container } from "react-bootstrap";
+import CustomContainer from "../../layaout/customContainer";
 import Main from "../../layaout/main";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import GalleryCard from "../../components/galleryCard";
-import styles from './places.module.css';
 import useData from "../../hooks/useData";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 const Places = () => {
-    let { ciudad } = useParams();
+    const navigate = useNavigate();
+    const { ciudad } = useParams();
     const [galleryList] = useData("places");
+
+    const handleClick = (id) => {
+        navigate(`/sitios/detalle/${id}`);
+    }
+
     return <Main>
-        <Container className={styles.container}>
-            <Row>
+        <CustomContainer>
+            <Row data-masonry='{"percentPosition": true }' >
                 {galleryList.filter(({ idCity }) => {
                     return ciudad ? idCity === parseInt(ciudad) : true;
-                }).map(({ title, description, img }) => {
+                }).map(({ id, title, description, img }) => {
                     return <Col xs={12} md={6} lg={4}>
-                        <GalleryCard title={title} description={description} imgSrc={img} />
+                        <GalleryCard title={title} description={description} imgSrc={img} handleClick={() => handleClick(id)} buttomCustomLabel="Ver"/>
                     </Col>;
                 })}
             </Row>
-        </Container>
+        </CustomContainer>
     </Main>;
 };
 export default Places;
